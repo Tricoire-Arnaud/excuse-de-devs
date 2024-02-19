@@ -16,7 +16,7 @@ Avant de commencer, assurez-vous d'avoir installé les outils suivants sur votre
 1. Clonez ce dépôt sur votre machine locale :
 
     ```bash
-    git clone <URL_DU_DEPOT>
+    git clone (https://github.com/Tricoire-Arnaud/excuse-de-devs.git)
     ```
 
 2. Accédez au répertoire du projet :
