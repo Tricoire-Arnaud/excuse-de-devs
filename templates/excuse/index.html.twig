@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="content" class="container text-center"> <!-- Added text-center class -->
+        <h2 id="excuseTitle" class="fade-in">Une excuse de Dev :</h2>
+        <p class="mt-4">{{ randomExcuse.message }}</p>
+        <button onclick="window.location.reload();" class="btn btn-primary mt-4">Générer une nouvelle excuse</button>
+    </div>
+
+    <style>
+        /* CSS pour l'animation de fondu */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+
+        /* CSS pour l'animation de déplacement vers le haut */
+        @keyframes moveUp {
+            from { transform: translateY(0); }
+            to { transform: translateY(-100%); }
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Sélection du titre
+            var title = document.getElementById('excuseTitle');
+
+            // Ajout d'une classe après un délai de 2 secondes pour déplacer le titre vers le haut
+            setTimeout(function() {
+                title.classList.remove('fade-in'); // Supprime la classe fade-in
+                title.style.animation = 'moveUp 1s forwards'; // Déclenche l'animation de déplacement vers le haut
+            }, 2000);
+        });
+    </script>
+{% endblock %}

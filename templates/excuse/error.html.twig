@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Error Excuse</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Styles for the page */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 50px;
+            text-align: center;
+        }
+        .excuse {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .loader {
+            display: none;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Excuse Error Page</h1>
+        <div class="loader">
+            <div class="spinner-border text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <div class="excuse">
+            {{ excuse.message }}
+        </div>
+        {% if randomHttpCode is not null %}
+            <a href="{{ path('app_error', {'http_code': randomHttpCode}) }}" class="btn btn-primary" onclick="showLoader()">Generate New Excuse</a>
+        {% else %}
+            <p>No new excuse available</p>
+        {% endif %}
+    </div>
+    <script>
+        // Function to show loader and hide it after a random time
+        function showLoader() {
+            const loader = document.querySelector('.loader');
+            loader.style.display = 'block';
+            const randomTime = getRandomTime(1000, 5000);
+            setTimeout(() => {
+                loader.style.display = 'none';
+                const excuse = document.querySelector('.excuse');
+                excuse.style.display = 'block';
+            }, randomTime);
+        }
+
+        // Function to generate a random time between min and max values
+        function getRandomTime(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+    </script>
+</body>
+</html>

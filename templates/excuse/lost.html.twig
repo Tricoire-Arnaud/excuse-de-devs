@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div style="text-align: center;">
+        <h2>i’m lost</h2>
+        <img src="{{ asset('img/zq2.gif') }}" alt="GIF">
+    </div>
+
+    <script>
+        // Redirection vers "/" après 5 secondes
+        setTimeout(function() {
+            window.location.href = "{{ path('app_excuses') }}";
+        }, 5000);
+    </script>
+{% endblock %}

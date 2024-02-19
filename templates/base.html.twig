@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Excuses de Dev{% endblock %}</title>
+    <!-- Include Bootstrap CSS files -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <!-- CSS for animations -->
+    <style>
+        /* CSS pour l'animation de fondu */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+
+        /* CSS pour l'animation de déplacement vers le haut */
+        @keyframes moveUp {
+            from { transform: translateY(0); }
+            to { transform: translateY(-100%); }
+        }
+
+        /* CSS pour le centrage vertical */
+        .vertical-center {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <header class="text-center py-3 fade-in">
+        <h1 class="fade-in">Les Excuses de Dev</h1>
+    </header>
+
+    <main class="container mt-4">
+        {% block body %}{% endblock %}
+    </main>
+
+    <footer class="text-center py-3 fade-in">
+        <p>&copy; 2024 Excuses de Dev</p>
+    </footer>
+
+    <!-- Include Bootstrap JS files -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
